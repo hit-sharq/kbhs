@@ -1,0 +1,49 @@
+.registerPage {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 160px);
+}
+
+.formContainer {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  width: 100%;
+  max-width: 400px;
+}
+
+.formContainer h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.formContainer p {
+  margin-bottom: 1.5rem;
+  color: #555;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.form button {
+  margin-top: 1rem;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+}
+
+.loginLink {
+  margin-top: 1.5rem;
+  text-align: center;
+}
+

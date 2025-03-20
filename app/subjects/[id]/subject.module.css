@@ -1,0 +1,79 @@
+.subjectPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.teacher {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 1rem;
+}
+
+.description {
+  line-height: 1.6;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.notesList {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.notesList h2 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+}
+
+.notesTable {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.notesTable th,
+.notesTable td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--light-gray);
+}
+
+.notesTable th {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.notesTable td a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.notesTable .actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+@media (max-width: 768px) {
+  .notesTable {
+    display: block;
+    overflow-x: auto;
+  }
+}
+
