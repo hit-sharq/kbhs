@@ -1,15 +1,29 @@
 "use client"
 
-import { useState, useEffect } from "react"
+import { use, useState, useEffect } from "react"
 import { useRouter } from "next/navigation"
 import { updateNote } from "@/app/actions"
 import styles from "./edit-note.module.css"
 
-export default function EditNotePage({ params }: { params: { id: string } }) {
+interface Note {
+  id: string;
+  title: string;
+  subjectId: string;
+  topic: string;
+  content: string;
+}
+
+interface Subject {
+  id: string;
+  name: string;
+}
+
+export default function EditNotePage({ params: paramsPromise }: { params: Promise<{ id: string }> }) {
+  const params = use(paramsPromise)
   const router = useRouter()
-  const [note, setNote] = useState(null)
-  const [subjects, setSubjects] = useState([])
-  const [error, setError] = useState("")
+  const [note, setNote] = useState<Note | null>(null)
+  const [subjects, setSubjects] = useState<Subject[]>([])
+  const [error, setError] = useState<string>("")
   const [isLoading, setIsLoading] = useState(true)
 
   const [formData, setFormData] = useState({
@@ -23,19 +37,17 @@ export default function EditNotePage({ params }: { params: { id: string } }) {
   useEffect(() => {
     async function fetchData() {
       try {
-        // Fetch note data
         const noteResponse = await fetch(`/api/notes/${params.id}`)
         if (!noteResponse.ok) {
           throw new Error("Failed to fetch note")
         }
-        const noteData = await noteResponse.json()
+        const noteData: Note = await noteResponse.json()
 
-        // Fetch subjects
         const subjectsResponse = await fetch("/api/subjects")
         if (!subjectsResponse.ok) {
           throw new Error("Failed to fetch subjects")
         }
-        const subjectsData = await subjectsResponse.json()
+        const subjectsData: Subject[] = await subjectsResponse.json()
 
         setNote(noteData)
         setSubjects(subjectsData)
@@ -48,7 +60,7 @@ export default function EditNotePage({ params }: { params: { id: string } }) {
           content: noteData.content,
         })
       } catch (error) {
-        setError("Error loading data: " + error.message)
+        setError(`Error loading data: ${(error as Error).message}`)
       } finally {
         setIsLoading(false)
       }
@@ -57,16 +69,27 @@ export default function EditNotePage({ params }: { params: { id: string } }) {
     fetchData()
   }, [params.id])
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target
     setFormData((prev) => ({ ...prev, [name]: value }))
   }
 
-  async function handleSubmit(formData) {
-    const result = await updateNote(formData)
+  async function handleSubmit(e: React.FormEvent) {
+    e.preventDefault();
+
+    const data = new FormData();
+    data.append("id", formData.id);
+    data.append("title", formData.title);
+    data.append("subject", formData.subject);
+    data.append("topic", formData.topic);
+    data.append("content", formData.content);
+
+    const result = await updateNote(data);
 
     if (result?.error) {
-      setError(result.error)
+      setError(result.error);
+    } else {
+      router.push("/notes");
     }
   }
 
@@ -85,7 +108,7 @@ export default function EditNotePage({ params }: { params: { id: string } }) {
 
       {error && <div className={styles.error}>{error}</div>}
 
-      <form action={handleSubmit} className={styles.form}>
+      <form onSubmit={handleSubmit} className={styles.form}>
         <input type="hidden" name="id" value={formData.id} />
 
         <div className="form-group">
@@ -165,4 +188,3 @@ export default function EditNotePage({ params }: { params: { id: string } }) {
     </div>
   )
 }
-
