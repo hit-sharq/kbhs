@@ -1,0 +1,111 @@
+.dashboardPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.welcome {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.welcome h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+.card {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.cardHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cardHeader h2 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.emptyState {
+  color: #666;
+  text-align: center;
+  padding: 2rem 0;
+}
+
+.subjectList,
+.noteList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.subjectItem,
+.noteItem {
+  display: flex;
+  padding: 1rem;
+  background-color: var(--secondary-color);
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--text-color);
+  transition: background-color 0.2s;
+}
+
+.subjectItem {
+  justify-content: space-between;
+  align-items: center;
+}
+
+.noteItem {
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.subjectItem:hover,
+.noteItem:hover {
+  background-color: #e8e8e8;
+  text-decoration: none;
+}
+
+.subjectName {
+  font-weight: 500;
+}
+
+.noteCount {
+  font-size: 0.875rem;
+  color: #666;
+}
+
+.noteTitle {
+  font-weight: 500;
+}
+
+.noteSubject {
+  font-size: 0.875rem;
+  color: var(--primary-color);
+}
+
+.noteDate {
+  font-size: 0.75rem;
+  color: #666;
+}
+

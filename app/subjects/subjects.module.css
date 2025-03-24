@@ -1,0 +1,58 @@
+.subjectsPage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.subjectsPage h1 {
+  color: var(--primary-color);
+  margin: 0;
+}
+
+.subjectGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 2rem;
+}
+
+.subjectCard {
+  background-color: var(--white);
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s, box-shadow 0.3s;
+  display: flex;
+  flex-direction: column;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+.subjectCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  text-decoration: none;
+}
+
+.subjectCard h2 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+}
+
+.teacher {
+  color: #555;
+  margin-bottom: 0.5rem;
+}
+
+.count {
+  margin-top: auto;
+  font-weight: 500;
+  color: var(--primary-color);
+}
+

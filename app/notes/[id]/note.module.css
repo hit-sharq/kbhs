@@ -1,0 +1,66 @@
+.notePage {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.header {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.header h1 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+.meta {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 0.5rem;
+  color: #555;
+}
+
+.meta p {
+  margin: 0;
+}
+
+.meta a {
+  color: var(--primary-color);
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 1rem;
+}
+
+.content {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+  line-height: 1.8;
+}
+
+.content h1,
+.content h2,
+.content h3 {
+  color: var(--primary-color);
+  margin: 1.5rem 0 1rem;
+}
+
+.content h1:first-child {
+  margin-top: 0;
+}
+
+.content ul,
+.content ol {
+  margin-left: 2rem;
+  margin-bottom: 1.5rem;
+}
+

@@ -1,0 +1,38 @@
+.addNotePage {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.addNotePage h1 {
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
+
+.addNotePage p {
+  margin-bottom: 2rem;
+  color: #555;
+}
+
+.form {
+  background-color: var(--white);
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow);
+}
+
+.formActions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.error {
+  background-color: #ffebee;
+  color: #c62828;
+  padding: 0.75rem;
+  border-radius: 4px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #ef9a9a;
+}
+
