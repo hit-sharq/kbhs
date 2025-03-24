@@ -7,7 +7,6 @@ export default function Home() {
     <div className={styles.home}>
       <section className={styles.hero}>
         <div className={styles.heroLogo}>
-          <Image src="/images/kb-logo.png" alt="KBHS Logo" width={120} height={120} className={styles.logoImage} />
         </div>
         <h1>Welcome to KBHS Teacher Notes</h1>
         <p>A platform for Kasikeu Boys High School teachers to manage subject notes</p>
